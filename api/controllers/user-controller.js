@@ -76,7 +76,7 @@ exports.login = function (req, res, next) {
               userId: currentUser._id,
               roles: currentUser.roles
             },
-            process.env.JWT_KEY,
+            process.env.JWT_ACCESS_KEY,
             {
               expiresIn: 60 // 60 Seconds. Eg values: 60, "2 days", "10h", "7d", "120" is equal to "120ms"
             }
