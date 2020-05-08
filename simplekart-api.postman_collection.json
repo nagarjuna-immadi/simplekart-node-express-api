@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "5cc12b5b-b591-4afa-82e0-17266a3a0af5",
+		"name": "simplekart-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@test.com\",\n\t\"password\": \"test123\",\n\t\"firstName\": \"Nagarjuna\",\n\t\"lastName\": \"Immadi\",\n\t\"gender\": \"Male\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						},
+						"description": "user/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@simplekart.com\",\n\t\"password\": \"test123\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						},
+						"description": "User Login"
+					},
+					"response": []
+				},
+				{
+					"name": "User Get One",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlNTc1NGQxYzEwOTk5OWVjMTkzMzY4Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NjQ1MTcsImV4cCI6MTU0MTgwNzcxN30.PTAcAYdcR48KUOuUcxVOgXZrH38p6qcB3BpQ8JNJM50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/5be576691c109999ec19336e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"5be576691c109999ec19336e"
+							]
+						},
+						"description": "Get One User"
+					},
+					"response": []
+				},
+				{
+					"name": "User Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHNpbXBsZWthcnQuY29tIiwidXNlcklkIjoiNWJlYWFiODYwNzlhMWZiYjhjNzMwYzMyIiwicm9sZXMiOlsiYWRtaW4iXSwiaWF0IjoxNTQyNjE4MDU3LCJleHAiOjE1NDI3MDQ0NTd9.0FlTNAZjkfp1yEpsFUWhX8qfzkznvjJFd569SK2GuOo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/user?page=1&perPage=25&sortBy=firstName&searchTerm=nagarjuna",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "perPage",
+									"value": "25"
+								},
+								{
+									"key": "sortBy",
+									"value": "firstName"
+								},
+								{
+									"key": "searchTerm",
+									"value": "nagarjuna"
+								}
+							]
+						},
+						"description": "Get All users"
+					},
+					"response": []
+				},
+				{
+					"name": "User Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlNTc1NGQxYzEwOTk5OWVjMTkzMzY4Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NjQ1MTcsImV4cCI6MTU0MTgwNzcxN30.PTAcAYdcR48KUOuUcxVOgXZrH38p6qcB3BpQ8JNJM50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/user/5be576691c109999ec19336e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"5be576691c109999ec19336e"
+							]
+						},
+						"description": "Delete user"
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlNTc1NGQxYzEwOTk5OWVjMTkzMzY4Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NjQ1MTcsImV4cCI6MTU0MTgwNzcxN30.PTAcAYdcR48KUOuUcxVOgXZrH38p6qcB3BpQ8JNJM50",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"test@test.com\",\n\t\"firstName\": \"Nagarjun\",\n\t\"addresses\": [\n\t\t{\n\t\t\t\"type\": \"Home\",\n\t\t    \"street1\": \"Sudhakar Avenue, opp Sri Krishna Gardens function hall 1\",\n\t\t    \"street2\": \"Pragathi Nagar\",\n\t\t    \"city\": \"5be1897ed346e68d888254a7\",\n\t\t    \"state\": \"5be1897dd346e68d8882549e\",\n\t\t    \"zip\": 500072\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/5be576691c109999ec19336e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"5be576691c109999ec19336e"
+							]
+						},
+						"description": "Update user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": []
+		},
+		{
+			"name": "Order",
+			"item": []
+		},
+		{
+			"name": "Payment",
+			"item": []
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Category Add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlMThhZjNmMWJkMmY0OTQ0NDg2YzM3Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NTkxNDQsImV4cCI6MTU0MTgwMjM0NH0.VBzKGx7-P2ju1JLAeinGWmmUI_O__1C40FnMznftfMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Home and Kitchen\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"add"
+							]
+						},
+						"description": "Category Add"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlMThhZjNmMWJkMmY0OTQ0NDg2YzM3Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NTkxNDQsImV4cCI6MTU0MTgwMjM0NH0.VBzKGx7-P2ju1JLAeinGWmmUI_O__1C40FnMznftfMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"5be560d22b279d98f004c8e2\",\n\t\"name\": \"Fashion\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"update"
+							]
+						},
+						"description": "Category Update"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Add Sub Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlMThhZjNmMWJkMmY0OTQ0NDg2YzM3Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NTkxNDQsImV4cCI6MTU0MTgwMjM0NH0.VBzKGx7-P2ju1JLAeinGWmmUI_O__1C40FnMznftfMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Mens Fashion\",\n\t\"isSubCategory\": true,\n\t\"parent\": \"5be560d22b279d98f004c8e2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"add"
+							]
+						},
+						"description": "Category Add Sub Category"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Update Sub Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlMThhZjNmMWJkMmY0OTQ0NDg2YzM3Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE3NTkxNDQsImV4cCI6MTU0MTgwMjM0NH0.VBzKGx7-P2ju1JLAeinGWmmUI_O__1C40FnMznftfMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"_id\": \"5be561d42b279d98f004c8e4\",\n\t\"name\": \"Woman Fashion\",\n\t\"parent\": \"5be560d22b279d98f004c8e2\" \n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"update"
+							]
+						},
+						"description": "Category Update Sub Category"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category"
+							]
+						},
+						"description": "Category Get All"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/5be562792b279d98f004c8e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"5be562792b279d98f004c8e5"
+							]
+						},
+						"description": "Category Get One"
+					},
+					"response": []
+				},
+				{
+					"name": "Category Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQHRlc3QuY29tIiwidXNlcklkIjoiNWJlMThhZjNmMWJkMmY0OTQ0NDg2YzM3Iiwicm9sZXMiOlsiY3VzdG9tZXIiLCJhZG1pbiJdLCJpYXQiOjE1NDE2NzYxMTQsImV4cCI6MTU0MTY3OTcxNH0.zVnkxoGDhP9H9zuUyTu6h686zpZefbk5NfGNZB_5qDs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/5be41b7f111820855846421f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"5be41b7f111820855846421f"
+							]
+						},
+						"description": "Category Delete"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [],
+			"description": "Cart"
+		},
+		{
+			"name": "API Home Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				},
+				"description": "API Home page"
+			},
+			"response": []
+		}
+	]
+}

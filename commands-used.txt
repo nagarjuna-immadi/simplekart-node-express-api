@@ -1,0 +1,41 @@
+To start mongo server:
+----------------------
+C:/> mongod
+
+To start server:
+----------------
+> nodemon server.js
+
+To start server in debug mode:
+------------------------------
+> nodemon --inspect server.js
+
+MongoDB:
+========
+Export Entire DB:
+-----------------
+mongodump -d <database_name> -o <directory_backup>
+mongodump -d todos -o dbdump
+
+Import Entire DB:
+-----------------
+mongorestore -d <database_name> <directory_backup>
+dbdump>  mongorestore -d simplekart simplekart 
+
+Export collection:
+------------------
+mongoexport -d database_name -c collection_name -o file_name
+
+Import collection:
+------------------
+mongoimport -d datbase_name -c collection_name file_name
+
+Export collection without id:
+-----------------------------
+>mongo mongodb://localhost:27017/simplekart --quiet --eval "db.users.find({}, {_id:0}).forEach(printjson);" > users.json
+
+
+Logins:
+=======
+Admin: admin@simplekart.com / test123
+Customer: nagarjuna@gmail.com / test123

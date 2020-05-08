@@ -1,0 +1,9 @@
+Import:
+-------
+> mongoimport -d simplekart -c states states.json
+
+
+
+Export:
+-------
+> mongoexport -d simplekart -c states -o states.json
