@@ -78,7 +78,7 @@ exports.login = function (req, res, next) {
             },
             process.env.JWT_ACCESS_KEY,
             {
-              expiresIn: 60 // 60 Seconds. Eg values: 60, "2 days", "10h", "7d", "120" is equal to "120ms"
+              expiresIn: "1d" // 60 Seconds. Eg values: 60, "2 days", "10h", "7d", "120" is equal to "120ms"
             }
           );
           delete currentUser.password;
@@ -117,7 +117,7 @@ exports.getUser = function(req, res, next) {
         });
 };
 
-exports.getAllUsers = function(req, res, next) {
+exports.getAllUsers = async function(req, res, next) {
     var page = parseInt(req.query.page) || 1; 
     var perPage = parseInt(req.query.perPage) || 25;
     var sortBy = req.query.sortBy || 'firstName';
@@ -132,8 +132,9 @@ exports.getAllUsers = function(req, res, next) {
         criteria = { $text: { $search: searchTerm }}; 
     }
 
-    User.count(criteria, function (err, count) {
-        User.find(criteria)
+    const count = await User.count();
+
+    User.find(criteria)
         .select({ "roles": 1, "isActive": 1, "_id": 1, "firstName": 1, "lastName": 1, "email": 1, "gender": 1, "addresses": 1 })
         .populate('addresses.state')
         .populate('addresses.city')
@@ -151,7 +152,6 @@ exports.getAllUsers = function(req, res, next) {
                 error: err
             });
         });
-    });
 };
 
 exports.deleteUser = function(req, res, next) {
